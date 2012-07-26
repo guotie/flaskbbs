@@ -1,0 +1,33 @@
+{% extends "bbs_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+
+{% from "macros/pager.html" import pager %}
+{% from "macros/node_brief.html" import node_brief %}
+{% from "macros/topic_render.html" import topic_render with context %}
+{% from "macros/reply_render.html" import replies_render with context %}
+{% from "macros/reply_render.html" import reply_form with context %}
+
+{% block title %}{{topic.title}}{% endblock %}
+
+{% block body %}
+{{ navbar(2) }}
+<div class="container">
+    {{ messagebox() }}
+    <div class="row">
+        <div class="span9">
+            {{topic_render(topic)}}
+            <div class="clearfix"></div>
+            {{replies_render(replies, topic.reply_count)}}
+            {{pager(page, num_pages, pager_url, options)}}
+            {{reply_form(topic, form)}}
+        </div>
+
+        <div class="span3">
+            {{node_brief(topic.node, true)}}
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

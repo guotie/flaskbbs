@@ -1,0 +1,8 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+__author__ = 'guotie'
+
+import pylibmc
+
+mc = pylibmc.Client()

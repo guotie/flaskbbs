@@ -1,0 +1,16 @@
+textarea {width: auto;}
+#tips {margin-top: 50px;}
+h1 {font-size: 24px; margin-bottom: 20px; margin-right: 50px; border-bottom: solid 1px #7f7f7f;}
+h2 {font-size: 18px; margin: 20px 0 10px 0; border-bottom: solid 1px #989898;}
+.red {background: #d34b4b; color: white;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;}
+
+.settings{padding: 0px 20px 20px 50px;}
+.settings a { font-size: 16px; text-align: center; text-rendering:optimizelegibility; color: #333;}
+.password{padding: 0px 20px 20px 50px;}
+.password a {color: white; font-size: 16px; text-align: center;}
+
+.findpass p {font-size: 16px;}
+

@@ -1,0 +1,33 @@
+{% extends "bbs_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/pager.html" import pager %}
+{% from "macros/topic_brief.html" import topic_brief %}
+{% from "macros/node_header.html" import node_header %}
+{% from "macros/node_brief.html" import node_brief %}
+{% from "macros/sections.html" import sections_all %}
+
+{% block title %}论坛{% endblock %}
+
+{% block body %}
+{{ navbar(2) }}
+<div class="container">
+    {{ messagebox() }}
+    <div class="row">
+        <div class="span9 topics">
+            {{node_header(node, options, filter_url)}}
+            {% if topics %}
+            <div id="topic-list">{% for t in topics %}{{ topic_brief(t) }}{% endfor %}</div>
+            {{pager(page, num_pages, pager_url, options)}}
+            {% else %}<p>没有主题</p>
+            {% endif %}
+            {{sections_all(sections)}}
+        </div>
+
+        <div class="span3">
+            {{node_brief(node, true)}}
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

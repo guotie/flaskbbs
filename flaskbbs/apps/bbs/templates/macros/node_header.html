@@ -1,0 +1,10 @@
+{% macro node_header(node, options, url) %}
+{% set sort=options["sort"] %}
+<div class="node-header">{%if node%}<h2>{{node.title}} <span>(主题数: {{node.topic_count}} 回复数: {{node.reply_count}})</span></h2>{%else%}
+<h2>所有主题 <span>(主题数: <b>{{node.topic_count}}</b> 回复数: <b>{{node.reply_count}}</b>)</span></h2>{%endif%}
+<span class="pull-right topic-sort"><a href="{{url(options, sort=0)}}"{% if sort==0 %} class="btn"{%endif%}>最新回复</a> /
+ <a href="{{url(options, sort=1)}}"{% if sort==1 %} class="btn"{%endif%}>权重</a> /
+ <a href="{{url(options, sort=2)}}"{% if sort==2 %} class="btn"{%endif%}>最新创建</a> /
+ <a href="{{url(options, sort=3)}}"{% if sort==3 %} class="btn"{%endif%}>无人问津</a></span>
+</div>
+{% endmacro %}

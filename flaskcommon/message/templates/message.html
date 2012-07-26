@@ -1,0 +1,45 @@
+{% extends "_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+{% from "macros/pager.html" import pager %}
+
+{% block title %}我的消息{% endblock %}
+{% block headmeta %}<link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='message.css')}}" charset="utf-8" />{% endblock %}
+
+{% block body %}
+{{ navbar(-1) }}
+
+<div class="container">
+{{ messagebox() }}
+<div class="row">
+    <div class="span9">
+        <h1>消息列表</h1>
+        {% if messages %}
+        <ul class="unstyled" id="messages">
+        {% for m in messages %}
+        <li class="message">
+            <div class="message-sidebar">
+                <div><a class="message-avatar" href="{{m.sender.url}}"><img src="{{m.sender.avater}}" alt="{{m.sender.username}}" width="48" height="48"></a></div>
+                <div class="username"><a href="{{m.sender.url}}"><strong>{{m.sender.username}}</strong></a></div>
+            </div>
+            <div class="message-body">
+            <div class="message-header">
+            <h2 class="message-title">{{m.title}}</h2><span class="pull-right message-tm">{{m.send_tm}}</span>
+            </div>
+            <div class="message-content">{{m.content|safe}}</div>
+            </div>
+            <div class="clearfix"></div>
+        </li>
+        {% endfor %}</ul>
+        {{pager(page, num_pages, pager_url)}}
+        {% else %}<p>没有消息</p>
+        {% endif %}
+    </div>
+
+    <div class="span3">
+        <p class="btn-center"><a class="ui-btn" href="{{url_for('message.sendto')}}">发送消息</a></p>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

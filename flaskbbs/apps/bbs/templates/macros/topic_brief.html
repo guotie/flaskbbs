@@ -1,0 +1,22 @@
+{% macro topic_brief(topic) %}
+{% set user=topic.user %}
+{% set profile=user.profile %}
+<div class="row"><div class="topic-brief span9"><div class="row">
+<div class="span7">
+    <div class="pull-left avatar"><a href="{{user.url}}" rel="userpopover" title="{% if profile.city %}<i><span class='icon small_pin'></span>{{profile.city}}</i>{% endif %} {{user.username}}" data-content="{{profile.signature}}" class="user_avatar"><img alt="{{topic.user.username}}的头像" src="{{user.avater}}" /></a></div>
+    <div class="infos">
+        <div class="title">
+            <a href="{{url_for('bp_bbs.bbs_topic', id=topic.id)}}" title="{{topic.title}}">{{topic.title}}</a>
+        </div>
+        <div class="info leader">
+            <a class="btn" href="{{url_for('bp_bbs.bbs_node', node_name=topic.node.name)}}">{{topic.node.name}}</a>&nbsp;&nbsp;•&nbsp;&nbsp;
+            <a class="topic-user" href="{{user.url}}" data-name="{{user.username}}">{{user.username}}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<time title="{{topic.created}}">{{topic.hr_created_tm}}</time>&nbsp;&nbsp;
+            {% if topic.reply_count %}•&nbsp;&nbsp;最后回复 <a href="{{topic.last_reply_by}}" data-name="{{topic.last_reply_by}}">{{topic.last_reply_by}}</a> | <time title="{{topic.last_reply_at}}">{{topic.hr_last_reply}}</time>{% endif %}
+        </div>
+    </div>
+</div>
+<div class="span2">
+    <div class="pull-right replies"><a href="{{url_for('bp_bbs.bbs_topic',id=topic.id, _anchor='reply'+topic.reply_count|string)}}" class="count state_false" rel="twipsy" title="回复">{{topic.reply_count}}</a></div>
+</div>
+</div></div></div>
+{% endmacro %}

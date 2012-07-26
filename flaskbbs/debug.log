@@ -1,0 +1,88 @@
+2012-07-25 17:21:21,520 ERROR: Exception on /bbs/ [GET] [in D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py:1306]
+Traceback (most recent call last):
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1688, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\web\projects\flaskbbs\1\flaskbbs\apps\bbs\views.py", line 43, in bbs_index
+    count, num_pages, topics = get_page_query(query, page, page_size=DEFAULT_PAGE_SIZE)
+  File "D:\web\projects\flaskbbs\1\flaskcommon\utils\__init__.py", line 51, in get_page_query
+    count = query.count()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2571, in count
+    return self.from_self(col).scalar()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2215, in scalar
+    ret = self.one()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2184, in one
+    ret = list(self)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2227, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2242, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1449, in execute
+    params)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1584, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1698, in _execute_context
+    context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1691, in _execute_context
+    context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\default.py", line 331, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (OperationalError) no such table: topic u'SELECT count(*) AS count_1 \nFROM (SELECT topic.id AS topic_id, topic.section_id AS topic_section_id, topic.node_id AS topic_node_id, topic.user_id AS topic_user_id, topic.marks AS topic_marks, topic.status AS topic_status, topic.title AS topic_title, topic.content AS topic_content, topic.content_length AS topic_content_length, topic.created AS topic_created, topic.last_modified AS topic_last_modified, topic.hits AS topic_hits, topic.reply_count AS topic_reply_count, topic.reply_members AS topic_reply_members, topic.last_reply_by AS topic_last_reply_by, topic.last_reply_at AS topic_last_reply_at, topic.up_count AS topic_up_count, topic.down_count AS topic_down_count, topic.tags AS topic_tags, topic.impact AS topic_impact, topic.theme AS topic_theme \nFROM topic ORDER BY topic.last_reply_at DESC, topic.created DESC) AS anon_1' ()
+2012-07-25 17:21:21,755 ERROR: Exception on /favicon.ico [GET] [in D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py:1306]
+Traceback (most recent call last):
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1688, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1336, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1319, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found
+2012-07-25 17:21:48,059 ERROR: Exception on /bbs/ [GET] [in D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py:1306]
+Traceback (most recent call last):
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1688, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1344, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "D:\web\projects\flaskbbs\1\flaskbbs\apps\bbs\views.py", line 43, in bbs_index
+    count, num_pages, topics = get_page_query(query, page, page_size=DEFAULT_PAGE_SIZE)
+  File "D:\web\projects\flaskbbs\1\flaskcommon\utils\__init__.py", line 51, in get_page_query
+    count = query.count()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2571, in count
+    return self.from_self(col).scalar()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2215, in scalar
+    ret = self.one()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2184, in one
+    ret = list(self)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2227, in __iter__
+    return self._execute_and_instances(context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\orm\query.py", line 2242, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1449, in execute
+    params)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1584, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1698, in _execute_context
+    context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\base.py", line 1691, in _execute_context
+    context)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\sqlalchemy\engine\default.py", line 331, in do_execute
+    cursor.execute(statement, parameters)
+OperationalError: (OperationalError) no such table: topic u'SELECT count(*) AS count_1 \nFROM (SELECT topic.id AS topic_id, topic.section_id AS topic_section_id, topic.node_id AS topic_node_id, topic.user_id AS topic_user_id, topic.marks AS topic_marks, topic.status AS topic_status, topic.title AS topic_title, topic.content AS topic_content, topic.content_length AS topic_content_length, topic.created AS topic_created, topic.last_modified AS topic_last_modified, topic.hits AS topic_hits, topic.reply_count AS topic_reply_count, topic.reply_members AS topic_reply_members, topic.last_reply_by AS topic_last_reply_by, topic.last_reply_at AS topic_last_reply_at, topic.up_count AS topic_up_count, topic.down_count AS topic_down_count, topic.tags AS topic_tags, topic.impact AS topic_impact, topic.theme AS topic_theme \nFROM topic ORDER BY topic.last_reply_at DESC, topic.created DESC) AS anon_1' ()
+2012-07-25 17:21:48,154 ERROR: Exception on /favicon.ico [GET] [in D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py:1306]
+Traceback (most recent call last):
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1688, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1358, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1336, in dispatch_request
+    self.raise_routing_exception(req)
+  File "D:\web\projects\flaskbbs\1\virtualenv.bundle\flask\app.py", line 1319, in raise_routing_exception
+    raise request.routing_exception
+NotFound: 404: Not Found

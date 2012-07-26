@@ -1,0 +1,21 @@
+{% extends "bbs_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+
+{% block title %}未找到主题{% endblock %}
+
+{% block body %}
+{{ navbar(2) }}
+<div class="container">
+    {{ messagebox() }}
+    <div class="row">
+        <div class="span9">
+            <h1>未找到主题</h1><br />
+        </div>
+        <div class="span3">
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

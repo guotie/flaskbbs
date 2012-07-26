@@ -1,0 +1,10 @@
+{% extends "_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+
+{% block headmeta %}<link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='bbs.css')}}" charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/sidebar.css')}}" charset="utf-8" />{% endblock %}
+
+{% block body %}
+{{ navbar(-2) }}
+{% endblock %}

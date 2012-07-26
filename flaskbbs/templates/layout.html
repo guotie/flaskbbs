@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}——flask bbs演示</title>
+    <meta charset="utf-8" />
+    <meta property="wb:webmaster" content="521867be48adac77" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+    <link rel="shortcut icon" href="{{ url_for('static', filename='image/favicon.ico') }}">
+    {% block head %}{% endblock %}
+    {% block headextra %}{% endblock %}
+</head>
+<body>
+{% block body %}
+{% endblock %}
+<!--<script type="text/javascript" src="http://tajs.qq.com/stats?sId=12788512" charset="UTF-8"></script>-->
+</body>
+
+</html>

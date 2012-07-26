@@ -1,0 +1,40 @@
+{% extends "_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+{% from "macros/formhelper.html" import render_field %}
+
+{% block title %}发送消息{% endblock %}
+{% block headmeta %}<link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='message.css')}}" charset="utf-8" />{% endblock %}
+
+{% block body %}
+{{ navbar(-1) }}
+
+<div class="container">
+{{ messagebox() }}
+<div class="row">
+    <div class="span9">
+        <h1>发送消息</h1>
+        <form action="{{actionurl}}" method="POST" class="form-horizontal" >
+            <fieldset>
+                {{ form.hidden_tag() }}
+
+                {% if form.recv %}{{render_field(form.recv, autofocus='autofocus')}}{{render_field(form.title)}}
+                {% else %}
+                {{render_field(form.title, autofocus='autofocus')}}{% endif %}
+                {{render_field(form.content, rows=6, cols=54)}}
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="submit" class="btn btn-primary btn-large" value="发送" />
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+    <div class="span3">
+        <p class="btn-center"><a class="ui-btn" href="{{url_for('message.index')}}">消息列表</a></p>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

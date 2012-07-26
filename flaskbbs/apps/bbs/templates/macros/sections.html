@@ -1,0 +1,8 @@
+{% macro sections_all(sections) %}
+<div class="sections">
+<h2>节点导航</h2>{% for section in sections %}<div class="row">
+    <div class="span2"><a href="{{url_for('bp_bbs.bbs_section', section_name=section.name)}}" title="{{section.title}}">{{section.title}}</a></div>
+    <div class="span7">{% for node in section.nodes %}<span><a href="{{url_for('bp_bbs.bbs_node', node_name=node.name)}}">{{node.title}}</a></span>{% endfor %}</div>
+</div>{% endfor %}
+</div>
+{% endmacro %}

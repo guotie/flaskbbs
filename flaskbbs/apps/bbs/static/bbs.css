@@ -1,0 +1,63 @@
+textarea {width: auto;}
+
+.topics {font-size: 14px; color: #999; background-color: #fff; padding-bottom: 25px; border-radius: 5px;}
+.topics a, .topic a, .reply-form a, .replies a{color: #333;}
+.topics a:hover, .topic a:hover, .reply-form a:hover, .replies a:hover {color: #666;}
+
+.node-header {border-bottom: solid 1px #7f7f7f; margin-bottom: 6px;}
+h1 {font-size: 24px; margin-bottom: 10px; border-bottom: solid 1px #7f7f7f;}
+h2 {font-size: 18px; width: 60%; display: inline-block; padding-left: 5px;}
+h2 span {font-size: 14px; color:#778087; font-weight: normal;}
+.topic-sort {font-size: 13px; line-height: 36px; vertical-align: middle; margin-right: 10px;}
+.topic-sort a {line-height: 18px; vertical-align: middle;}
+
+.topic-brief {padding:10px 0 8px 0; border-bottom: dotted 1px #bebebe; }
+.topic-brief .avatar{margin:2px 9px 15px 5px; }
+.topic-brief .avatar:hover, .topic .avatar:hover, .replies .avatar:hover {opacity:0.8;}
+.topic-brief .avatar img, .topic .avatar img, .replies .avatar img{border-radius:4px;}
+.topic-brief .title{padding-bottom: 8px; font-size: 16px;}
+.topic-brief .info,
+.topic .info,{padding-bottom: 4px;}
+.topic-brief .topic-user,.topic .topic-user, .replies .reply-user {color: #343434; font-weight: bold;}
+.topic-brief .span2 {line-height: 40px;}
+.topic-brief .replies {width: 64px; text-align: center; font-size: 13px; overflow: hidden;}
+.topic-brief .replies a {color: white; background-color: #6a88a6; border-radius: 12px; line-height: 16px; padding: 2px 10px; font-weight: bold;}
+.topic-brief .replies a:hover {background-color: #abc;}
+.topic-brief .title a {color: #0055aa;}
+
+/* topic */
+.topic {font-size: 14px; color: #999; background-color: #fff; padding-bottom: 5px; margin-bottom: 10px; border-radius: 5px;}
+.topic h1 {font-size: 20px; margin: 0px; border-bottom:0px; padding: 0px;}
+.topic .avatar, .replies .avatar {margin:9px 9px 15px 9px;}
+.topic .topic-header {border-bottom: solid 1px #7f7f7f; padding-bottom: 5px; margin-bottom: 10px;}
+.topic .infos {margin-left: 64px;}
+.topic .topic-body {color: #333; padding: 9px 9px 9px 9px; font-size: 16px;}
+
+/*  replies */
+.replies {background-color: #fff;  margin: 10px 0px; border-radius: 5px; font-size: 14px; color: #999; padding-bottom: 15px;}
+.replies .reply-count {color: #999; font-weight: bold; padding: 9px 9px 5px 9px; margin: 9px 0px; border-bottom: solid 1px #7f7f7f;}
+.replies .reply {border-bottom: solid 1px #7f7f7f; margin-bottom: 9px;}
+.reply .floor {padding-right: 9px;}
+.reply .reply-body {padding: 9px 9px 9px 0px; font-size: 16px; color: #333; margin-left: 66px;}
+
+.topic p, .replies p {font-size: 16px;}
+/*  reply form  */
+.reply-form {margin-top: 30px; font-size: 16px;color: #999;}
+.reply-form .reply-login {height: 100px; border-color: #999999 #CCCCCC #CCCCCC #999999;border-style: solid; border-width: 1px; background-color: #fff;}
+.reply-form .reply-login span {padding: 32px 0 0 0; text-align: center; vertical-align: middle; display: block;}
+
+.reply-form .reply-editor { width: 80%;}
+.reply-form .reply-submit {display: inline-block; padding: 25px;}
+.reply-form ul {font-size: 14px; margin-top: 5px;}
+.reply-form li {padding: 5px;}
+
+.sections h2 {width: auto; display: block; border-bottom: solid 1px #7f7f7f;}
+.sections .row {margin-top:10px; margin-bottom: 10px;}
+.sections .span2 {text-align: center; display: inline-block; color: #999;}
+.sections .span7 {text-align: left; }
+.sections span {margin: 0px 10px;}
+
+/* sidebar  */
+.sidebar-node {text-align: center;}
+.sidebar-node .ui-box-header a {color: #5BB75B; font-weight: bold;}
+.siderbar-node .ui-box-container {font-size: 14px;}

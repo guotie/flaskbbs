@@ -1,0 +1,11 @@
+{% macro node_brief(node, create) %}
+<div class="ui-box sidebar-node">{% if node %}
+    <div class="ui-box-header">
+        {% if node.avatar_url %}<a href="{{url_for('bp_bbs.bbs_node', node_name=node.name)}}" class="avatar"><img title="{{node.name}}" src="{{node.avatar_url}}" alt="{{node.title}}" /></a>{%endif%}
+        <a href="{{url_for('bp_bbs.bbs_node', node_name=node.name)}}">{{node.title}}</a>
+    </div>
+    {% if node.descp %}<div class="ui-box-container">{{node.descp|truncate(length=60)}}</div>{% endif %}
+{%if create %}<div class="ui-box-footer"><a class="ui-btn" href="{{url_for('bp_bbs.bbs_add_topic', node=node.name)}}">发布新主题</a></div>{%endif%}{%else%}
+{%if create %}<div class="ui-box-footer"><a class="ui-btn" href="{{url_for('bp_bbs.bbs_add_topic')}}">发布新主题</a></div>{%endif%}{%endif%}
+</div>
+{% endmacro %}

@@ -1,0 +1,39 @@
+{% extends "_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+{% from "macros/formhelper.html" import render_field %}
+
+{% block title %}发送消息成功{% endblock %}
+{% block headmeta %}<link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='message.css')}}" charset="utf-8" />{% endblock %}
+
+{% block body %}
+{{ navbar(-1) }}
+
+<div class="container">
+{{ messagebox() }}
+<div class="row">
+    <div class="span9">
+        <h1>发送消息成功</h1>
+        <div class="message">
+            <div class="message-sidebar">
+                <div><a class="message-avatar" href="{{msg.sender.url}}"><img src="{{msg.sender.avater}}" alt="{{msg.sender.username}}" width="48" height="48"></a></div>
+                <div class="username"><a href="{{msg.sender.url}}"><strong>{{msg.sender.username}}</strong></a></div>
+            </div>
+            <div class="message-body">
+                <div class="message-header">
+                    <h2 class="message-title">{{msg.title}}</h2><span class="pull-right message-tm">{{msg.send_tm}}</span>
+                </div>
+                <div class="message-content">{{msg.content|safe}}</div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="span3">
+        <p class="btn-center"><a class="ui-btn" href="{{url_for('message.index')}}">消息列表</a></p>
+        <p class="btn-center"><a class="ui-btn" href="{{url_for('message.sendto')}}">发送消息</a></p>
+    </div>
+</div>
+</div>
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% macro user_nav() %}
+{% if current_user.is_authenticated() %}
+<ul class="nav pull-right">
+    <li><a href="/user/{{ current_user.id }}"> {{ current_user.username }}</a></li>
+    <li><a href="/auth/logout">logout</a></li>
+</ul>
+{% else %}
+<ul class="nav pull-right">
+    <li><a href="/auth/login/weibo">login</a></li>
+</ul>
+{% endif %}
+{% endmacro %}

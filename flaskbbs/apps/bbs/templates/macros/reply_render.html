@@ -1,0 +1,53 @@
+{% macro reply_render(reply) %}
+{%set user=reply.user%}
+{%set profile=reply.user.profile%}
+<div class="reply" id="reply-{{reply.floor}}"><a href="#reply{{reply.floor}}"></a>
+    <div class="pull-left avatar"><a href="{{user.url}}" rel="userpopover" title="{% if profile.city %}<i><span class='icon small_pin'></span>{{profile.city}}</i>{% endif %} {{user.username}}" data-content="{{profile.signature}}" class="user_avatar"><img alt="{{topic.user.username}}的头像" src="{{user.avater}}" /></a></div>
+    <div class="reply-header"><a class="reply-user" href="{{user.url}}" data-name="{{user.username}}">{{user.username}}</a>&nbsp;&nbsp;|&nbsp;&nbsp;<time title="{{reply.created}}">{{reply.hr_created_tm}}</time>
+        <span class="pull-right floor">{{reply.floor}} 楼</span>
+    </div>
+    <div class="reply-body">{{reply.content|safe}}</div>
+    <div class="clearfix"></div>
+</div>
+{% endmacro %}
+
+
+{% macro replies_render(replies, total) %}
+{% if replies %}
+<div class="replies">
+    <div class="reply-count">共有 {{total}} 条回复</div>
+    <div class="clearfix"></div>
+    {% for reply in replies %}{{reply_render(reply)}}<div class="clearfix"></div>{%endfor%}
+</div>{% endif %}
+{% endmacro %}
+
+
+{% macro reply_form(topic, form) %}
+{% from "macros/formhelper.html" import render_field %}
+<div class="reply-form">
+{% if current_user.is_anonymous() %}
+<div class="reply-login"><span>您需要登录后才能回复&nbsp;&nbsp;&nbsp;
+    <a class="btn" href="{{url_for('auth.login', next=url_for('.bbs_topic', id=topic.id))}}">登录</a> |
+    <a class="btn" href="{{url_for('auth.register', next=url_for('.bbs_topic', id=topic.id))}}">注册</a></span>
+</div>{% else %}
+<form action="" accept-charset="utf-8" method="POST" class="form-horizontal">
+    <fieldset>
+        {{ form.hidden_tag() }}
+        <textarea class="reply-editor" cols="64" id="content" name="content" rows="5" tabindex="1"></textarea>
+        <div class="reply-submit">
+            <input type="submit" class="btn btn-primary" tabindex="2" value="提交回复" />
+        </div>
+        {% if form.errors %}
+        <ul class="errors">
+            {% for e in form.errors %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <ul><li>支持Markdown语法</li><li>请尽量让自己的回复能够对别人有所帮助</li></ul>
+    </fieldset>
+</form>
+{% endif %}
+</div>
+{% endmacro %}
+

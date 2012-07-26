@@ -1,0 +1,18 @@
+textarea {width: auto;}
+h1 {font-size: 24px; margin-bottom: 10px; border-bottom: solid 1px #7f7f7f;}
+
+#messages {margin-left: 6px;}
+#message li {overflow: auto; margin: 6px 0; }
+.message {border-bottom: 1px dotted #bebebe; height: auto; padding: 10px 0;}
+.message-sidebar { width: 50px; float:left;}
+/*.message-avatar{float:left;margin-right:14px;}*/
+.message-avatar:hover{opacity:0.8;}
+.message-avatar img{border-radius:4px;}
+.message .username {text-align: center; font-size: 14px; padding-top: 5px;}
+.message .username a {color: #333;}
+.message-body {margin-left: 64px; padding-right: 20px;}
+.message-body h2 {font-size: 16px; display: inline;}
+.message-content {font-size: 14px;line-height:1.6;}
+.message-content p{font-size: 14px;line-height:1.6;}
+.message-header {width: 100%;}
+.message-tm {vertical-align: middle; line-height: 36px;}

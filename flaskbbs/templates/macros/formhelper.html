@@ -1,0 +1,17 @@
+{% macro render_field(f) %}
+<div class="control-group{% if f.errors %} error{% endif %}">
+    {{ f.label(class='control-label') }}
+    <div class="controls">
+        <div>
+            {% if f.extra_class %}{{ f(class_=f.extra_class, **kwargs) }}{% else %}{{ f(**kwargs) }}{% endif %}
+        </div>
+        {% if f.errors %}
+        <ul>
+            {% for e in f.errors %}
+            <li>{{ e }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+{% endmacro %}

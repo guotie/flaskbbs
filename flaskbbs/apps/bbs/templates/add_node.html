@@ -1,0 +1,47 @@
+{% extends "bbs_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/formhelper.html" import render_field %}
+
+{% block title %}增加节点{% endblock %}
+{% block headextra %}
+<link href="{{ url_for('static', filename='chosen/chosen.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+{{ navbar(2) }}
+<div class="container">
+    {{ messagebox() }}
+    <div class="row">
+        <div class="span9">
+            <h1>增加节点</h1>
+            <form action="{{url_for('.bbs_add_node')}}" method="POST" class="form-horizontal" >
+                <fieldset>
+                    {{ form.hidden_tag() }}
+
+                    {{render_field(form.section, autofocus='autofocus')}}
+                    {{render_field(form.node_name)}}
+                    {{render_field(form.node_title)}}
+                    {{render_field(form.item_per_page)}}
+                    {{render_field(form.avatar_url)}}
+                    {{render_field(form.descp, rows=5, cols=50)}}
+                    {{render_field(form.header, rows=5, cols=50)}}
+                    {{render_field(form.footer, rows=5, cols=50)}}
+                    {{render_field(form.sidebar, rows=5, cols=50)}}
+                    {{render_field(form.sidebar_ads, rows=5, cols=50)}}
+                    <div class="control-group">
+                        <div class="controls">
+                            <input type="submit" class="btn btn-primary btn-large" value="提交" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="span3">
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='chosen/chosen.jquery.min.js') }}" type="text/javascript">
+</script><script src="{{ url_for('static', filename='js/form.js') }}" type="text/javascript"></script>
+{% endblock %}

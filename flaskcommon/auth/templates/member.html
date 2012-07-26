@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% from "macros/navbar.html" import navbar with context %}
+{% from "macros/messagebox.html" import messagebox with context %}
+
+{% block title %}{{member.username}} 的个人资料{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css" charset="utf-8" />
+<style type="text/css">
+    body {
+        padding-top: 80px;
+        padding-bottom: 40px;
+    }
+</style>
+<script src="/static/js/jquery-1.7.1.min.js" type="text/javascript"></script>
+{% block headmeta %}{% endblock %}
+{% endblock %}
+
+{% block body %}
+{{ navbar(-2) }}
+
+<div class="container">
+{{messagebox()}}
+    <div class="row">
+        <div class="span9">
+            <h1>{{member.username}} 的个人资料</h1>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/bootstrap-alert.js') }}" type="text/javascript"></script>
+{% endblock %}
