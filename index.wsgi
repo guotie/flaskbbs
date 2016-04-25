@@ -11,3 +11,8 @@ from application import create_app
 app = create_app()
 
 application = sae.create_wsgi_app(app)
+
+from flaskcommon.extensions import db
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db.session.remove()
